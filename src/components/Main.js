@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import AddPostForm from './AddPostForm'
 import Post from './Post'
 import FilterPosts from './FilterPosts'
 import { Container, Row, Col, Button } from 'reactstrap'
 
-class Main extends Component {
-  render() {
-    return (
+const Main = () => (
       <Container className="mt-4">
         <Row>
           <Col sm={{size: 8, offset: 1}}>
@@ -28,8 +26,6 @@ class Main extends Component {
           </Col>
         </Row>
       </Container>
-    )
-  }
-}
+  )
 
 export default Main
