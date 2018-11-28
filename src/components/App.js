@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Nav from './Nav'
-import Main from './Main'
+import VotablePost from '../containers/VotablePost'
 
 export class App extends Component {
 
@@ -9,7 +9,7 @@ export class App extends Component {
     return (
       <div>
         <Nav />
-        <Main />
+        <VotablePost />
       </div>
     )
   }

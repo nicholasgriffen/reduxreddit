@@ -25,8 +25,10 @@ const Post = ({
     votes, 
     author, 
     content, 
-    createdAt }
-  }, comments) => {
+    createdAt,
+    id },
+    comments
+  }) => {
   return (
     <Row className="mt-3">
       <Col>
@@ -43,8 +45,8 @@ const Post = ({
             <CardText>
               { content }
             </CardText>
-              <hr />
-              {/*a few seconds ago*/ createdAt} | <FaComment /> { comments.length }
+              <hr />id: { id }
+              {/*a few seconds ago*/ createdAt.getDay()} | <FaComment /> { comments.length }
               <Form inline>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                   <Input type="text" name="comment" id="comment-field" placeholder="Enter a comment here" />
@@ -52,7 +54,7 @@ const Post = ({
                 <Button>Submit</Button>
               </Form>
               <ul className="mt-2">
-                { comments.map((comment, idx) => (<li key={idx}>{comment}</li>)) }
+                { comments[0].content }
               </ul>
           </CardBody>
         </Card>
