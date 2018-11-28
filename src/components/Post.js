@@ -54,7 +54,9 @@ const Post = ({
                 <Button>Submit</Button>
               </Form>
               <ul className="mt-2">
-                { comments[0].content }
+                { comments.map(comment => (
+                    <li key={comment.id}>{comment.content}</li>
+                ))}
               </ul>
           </CardBody>
         </Card>
