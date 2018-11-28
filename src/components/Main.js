@@ -4,7 +4,7 @@ import Post from './Post'
 import FilterPosts from './FilterPosts'
 import { Container, Row, Col, Button } from 'reactstrap'
 
-const Main = () => (
+const Main = ({ posts, comments }) => (
       <Container className="mt-4">
         <Row>
           <Col sm={{size: 8, offset: 1}}>
@@ -21,8 +21,13 @@ const Main = () => (
         </Row>
         <Row>
           <Col className="pr-0" sm={{size: 9, offset: 1}}>
-            {/* Below is the Post component for each post. It is up to you how you would like to iterate over them. */}
-            <Post />
+            {posts.map(post => {
+              return <Post 
+              key={post.id} 
+              post={post}
+              comments={comments.filter(comment => comment.post_id === post.id)}/>
+            })}
+            
           </Col>
         </Row>
       </Container>
