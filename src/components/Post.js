@@ -8,12 +8,11 @@ import {
   CardSubtitle,
   Row,
   Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input
+  Button
 } from 'reactstrap'
+
+import PostComment from '../containers/PostComment'
+
 import FaArrowUp from 'react-icons/lib/fa/arrow-up'
 import FaArrowDown from 'react-icons/lib/fa/arrow-down'
 import FaComment from 'react-icons/lib/fa/comment'
@@ -42,22 +41,17 @@ const Post = ({
             alt="Card image cap"
           />
           <CardBody>
-            <CardTitle>{ title } | <FaArrowUp onClick={onUpvoteClick}/> { votes } <FaArrowDown onClick={onDownvoteClick}/></CardTitle>
+            <CardTitle>{ title } | <FaArrowUp onClick={ onUpvoteClick }/> { votes } <FaArrowDown onClick={ onDownvoteClick }/></CardTitle>
             <CardSubtitle>{ author }</CardSubtitle>
             <CardText>
               { content }
             </CardText>
               <hr />id: { id }
-              {/*a few seconds ago*/ createdAt.getDay()} | <FaComment /> { comments.length }
-              <Form inline>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Input type="text" name="comment" id="comment-field" placeholder="Enter a comment here" />
-                </FormGroup>
-                <Button>Submit</Button>
-              </Form>
+              {/*a few seconds ago*/ ` DAY: ${createdAt.getDay()}`} | <FaComment /> { comments.length }
+              <PostComment post_id={id}/>
               <ul className="mt-2">
                 { comments.map(comment => (
-                    <li key={comment.id}>{comment.content}</li>
+                    <li key={comment.id}>{ comment.content }</li>
                 ))}
               </ul>
           </CardBody>
