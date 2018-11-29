@@ -28,7 +28,8 @@ const Post = ({
     createdAt,
     id },
     comments,
-    onUpvoteClick
+    onUpvoteClick,
+    onDownvoteClick
   }) => {
   return (
     <Row className="mt-3">
@@ -41,7 +42,7 @@ const Post = ({
             alt="Card image cap"
           />
           <CardBody>
-            <CardTitle>{ title } | <FaArrowUp onClick={onUpvoteClick}/> { votes } <FaArrowDown /></CardTitle>
+            <CardTitle>{ title } | <FaArrowUp onClick={onUpvoteClick}/> { votes } <FaArrowDown onClick={onDownvoteClick}/></CardTitle>
             <CardSubtitle>{ author }</CardSubtitle>
             <CardText>
               { content }
