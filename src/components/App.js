@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Nav from './Nav'
-import InteractivePost from '../containers/InteractivePost'
+import PostsList from '../containers/PostsList'
 
 export class App extends Component {
 
@@ -9,7 +9,7 @@ export class App extends Component {
     return (
       <div>
         <Nav />
-        <InteractivePost />
+        <PostsList />
       </div>
     )
   }
