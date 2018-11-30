@@ -1,3 +1,4 @@
+// wrapped in containers/InteractivePost.js
 import React from 'react'
 import {
   Card,
@@ -10,8 +11,10 @@ import {
   Col
 } from 'reactstrap'
 
+// comment submission form
 import PostComment from '../containers/PostComment'
-import { PostDateString } from '../utility'
+
+import { FormatDateString } from '../utility/DateLib'
 
 import FaArrowUp from 'react-icons/lib/fa/arrow-up'
 import FaArrowDown from 'react-icons/lib/fa/arrow-down'
@@ -47,7 +50,7 @@ const Post = ({
               { content }
             </CardText>
               <hr />{`id: ${id} `  } |
-              {` ${PostDateString(createdAt)} `} | <FaComment /> { ` ${comments.length} comment${(!comments.length || comments.length > 1) ? 's' : ''}` }
+              {` ${FormatDateString(createdAt)} `} | <FaComment /> { ` ${comments.length} comment${(!comments.length || comments.length > 1) ? 's' : ''}` }
               <PostComment post_id={id}/>
               <ul className="mt-2">
                 { comments.map(comment => (

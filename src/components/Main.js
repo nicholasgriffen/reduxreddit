@@ -1,3 +1,4 @@
+// wrapped in containers/PostsList.js
 import React from 'react'
 import AddPostForm from './AddPostForm'
 import InteractivePost from '../containers/InteractivePost'

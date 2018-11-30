@@ -1,3 +1,4 @@
+// wrapped in containers/PostComment.js
 import React from 'react'
 import {
     Button,
@@ -5,10 +6,7 @@ import {
     FormGroup,
     Input
 } from 'reactstrap'
-
-
-// post_id is dispatched to onCommentSubmit via container
-
+// post_id is dispatched to onCommentSubmit via container 
 const CommentForm = ({ post_id, onCommentSubmit }) => (
     <Form onSubmit={ onCommentSubmit } inline>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
