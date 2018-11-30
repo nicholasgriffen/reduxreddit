@@ -47,7 +47,7 @@ const Post = ({
             <CardText>
               { content }
             </CardText>
-              <hr />id: { id }
+              <hr />{`id: ${id} `  }
               {PostDateString(createdAt)} | <FaComment /> { comments.length }
               <PostComment post_id={id}/>
               <ul className="mt-2">
