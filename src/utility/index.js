@@ -7,9 +7,11 @@ export function PostDateString(createdAt) {
     if (secondsAgo < 10) {
         return `a few seconds ago`
     } else if (secondsAgo < 60) {
-        return `${secondsAgo} seconds ago`
+        return `${parseInt(secondsAgo, 10)} seconds ago`
     } else if (secondsAgo < (24 * 3600)) {
         return `${hours}:${minutes}${AMPM}`
+    } else if (secondsAgo < (48 * 3600)){
+        return `Yesterday at ${hours}:${minutes}${AMPM}`
     } else {
         const month = padSingleDigits(createdAt.getMonth() + 1)  
         const day = padSingleDigits(createdAt.getDate())

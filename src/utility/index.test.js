@@ -23,18 +23,27 @@ describe('#PostDateString', () => {
         expect(PostDateString(oneHourAgo)).toBe(`${hours}:${minutes}${AMPM}`)
     })
 
-    it('returns mm/dd/yyyy hours:minutes for dates > 48 hours old', () => {
-        const oneDayAgo = new Date(Date.now() - 3600000 * 24)
-        const month = padSingleDigits(oneDayAgo.getMonth() + 1)  
-        const day = padSingleDigits(oneDayAgo.getDate())
-        const hours = padSingleDigits(convertHours(oneDayAgo))
-        const minutes = padSingleDigits(oneDayAgo.getMinutes())
-        const AMPM = oneDayAgo.getHours() < 11 ? 'AM':'PM'
+    it('returns Yesterday at hours:minutes for dates < 48 hours old', () => {
+        const oneDayOneHourAgo = new Date(Date.now() - (3600000 + 3600000 * 24))
+        const hours = padSingleDigits(convertHours(oneDayOneHourAgo))
+        const minutes  = padSingleDigits(oneDayOneHourAgo.getMinutes())
+        const AMPM = oneDayOneHourAgo.getHours() < 11 ? 'AM':'PM'
+        
+        expect(PostDateString(oneDayOneHourAgo)).toBe(`Yesterday at ${hours}:${minutes}${AMPM}`)
+    })
 
-        const formattedDate = `${month}/${day}/${oneDayAgo.getFullYear()}`
+    it('returns mm/dd/yyyy hours:minutes for dates > 48 hours old', () => {
+        const twoDaysAgo = new Date(Date.now() - 3600000 * 48)
+        const month = padSingleDigits(twoDaysAgo.getMonth() + 1)  
+        const day = padSingleDigits(twoDaysAgo.getDate())
+        const hours = padSingleDigits(convertHours(twoDaysAgo))
+        const minutes = padSingleDigits(twoDaysAgo.getMinutes())
+        const AMPM = twoDaysAgo.getHours() < 11 ? 'AM':'PM'
+
+        const formattedDate = `${month}/${day}/${twoDaysAgo.getFullYear()}`
         const formattedString = `${formattedDate} ${hours}:${minutes}${AMPM}`
         
-        expect(PostDateString(oneDayAgo)).toBe(formattedString)
+        expect(PostDateString(twoDaysAgo)).toBe(formattedString)
     })
 })
     

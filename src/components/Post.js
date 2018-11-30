@@ -7,8 +7,7 @@ import {
   CardTitle,
   CardSubtitle,
   Row,
-  Col,
-  Button
+  Col
 } from 'reactstrap'
 
 import PostComment from '../containers/PostComment'
@@ -47,8 +46,8 @@ const Post = ({
             <CardText>
               { content }
             </CardText>
-              <hr />{`id: ${id} `  }
-              {PostDateString(createdAt)} | <FaComment /> { comments.length }
+              <hr />{`id: ${id} `  } |
+              {` ${PostDateString(createdAt)} `} | <FaComment /> { ` ${comments.length} comment${(!comments.length || comments.length > 1) ? 's' : ''}` }
               <PostComment post_id={id}/>
               <ul className="mt-2">
                 { comments.map(comment => (
