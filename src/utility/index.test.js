@@ -18,8 +18,9 @@ describe('#PostDateString', () => {
         const oneHourAgo = new Date(Date.now() - 3600000)
         const hours = padSingleDigits(convertHours(oneHourAgo))
         const minutes  = padSingleDigits(oneHourAgo.getMinutes())
+        const AMPM = oneHourAgo.getHours() < 11 ? 'AM':'PM'
         
-        expect(PostDateString(oneHourAgo)).toBe(`${hours}:${minutes}`)
+        expect(PostDateString(oneHourAgo)).toBe(`${hours}:${minutes}${AMPM}`)
     })
 
     it('returns mm/dd/yyyy hours:minutes for dates > 48 hours old', () => {
@@ -28,9 +29,10 @@ describe('#PostDateString', () => {
         const day = padSingleDigits(oneDayAgo.getDate())
         const hours = padSingleDigits(convertHours(oneDayAgo))
         const minutes = padSingleDigits(oneDayAgo.getMinutes())
+        const AMPM = oneDayAgo.getHours() < 11 ? 'AM':'PM'
 
         const formattedDate = `${month}/${day}/${oneDayAgo.getFullYear()}`
-        const formattedString = `${formattedDate} ${hours}:${minutes}`
+        const formattedString = `${formattedDate} ${hours}:${minutes}${AMPM}`
         
         expect(PostDateString(oneDayAgo)).toBe(formattedString)
     })

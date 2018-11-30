@@ -2,19 +2,20 @@ export function PostDateString(createdAt) {
     const secondsAgo = ((Date.now() - createdAt.getTime()) / 1000)
     const hours = padSingleDigits(convertHours(createdAt))
     const minutes = padSingleDigits(createdAt.getMinutes())
+    const AMPM = createdAt.getHours() < 11 ? 'AM':'PM'
 
     if (secondsAgo < 10) {
         return `a few seconds ago`
     } else if (secondsAgo < 60) {
         return `${secondsAgo} seconds ago`
     } else if (secondsAgo < (24 * 3600)) {
-        return `${hours}:${minutes}`
+        return `${hours}:${minutes}${AMPM}`
     } else {
         const month = padSingleDigits(createdAt.getMonth() + 1)  
         const day = padSingleDigits(createdAt.getDate())
         const formattedDate = `${month}/${day}/${createdAt.getFullYear()}`
 
-        return `${formattedDate} ${hours}:${minutes}`
+        return `${formattedDate} ${hours}:${minutes}${AMPM}`
     }
 }
 
