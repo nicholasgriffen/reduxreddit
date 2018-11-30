@@ -1,4 +1,3 @@
-import React from 'react'
 import { PostDateString } from './'
 
 describe('#PostDateString', () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+
+import App from './App'
 
 const postsData = [{
   img_url: 'img.com', 
