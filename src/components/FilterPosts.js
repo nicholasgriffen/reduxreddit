@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { 
+  Form, 
+  FormGroup, 
+  Input,
+  Label } from 'reactstrap';
 
 class FilterPosts extends Component {
   render () {

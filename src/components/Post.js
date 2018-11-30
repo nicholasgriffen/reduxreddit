@@ -12,6 +12,7 @@ import {
 } from 'reactstrap'
 
 import PostComment from '../containers/PostComment'
+import { PostDateString } from '../utility'
 
 import FaArrowUp from 'react-icons/lib/fa/arrow-up'
 import FaArrowDown from 'react-icons/lib/fa/arrow-down'
@@ -47,11 +48,11 @@ const Post = ({
               { content }
             </CardText>
               <hr />id: { id }
-              {/*a few seconds ago*/ ` DAY: ${createdAt.getDay()}`} | <FaComment /> { comments.length }
+              {PostDateString(createdAt)} | <FaComment /> { comments.length }
               <PostComment post_id={id}/>
               <ul className="mt-2">
                 { comments.map(comment => (
-                    <li key={comment.id}>{ comment.content }</li>
+                    <li key={ comment.id }>{ comment.content }</li>
                 ))}
               </ul>
           </CardBody>

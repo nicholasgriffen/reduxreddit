@@ -1,7 +1,10 @@
 import { connect } from 'react-redux'
 
 import Post from '../components/Post'
-import { upvotePost, downvotePost } from '../actions'
+import { 
+    upvotePost, 
+    downvotePost 
+} from '../actions'
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

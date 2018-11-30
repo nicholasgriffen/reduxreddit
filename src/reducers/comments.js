@@ -1,6 +1,7 @@
 import { NEW_COMMENT } from '../actions/constants'
 
 let nextId = 1
+
 const comments = (state = [{
     post_id: 0,
     id: 0,

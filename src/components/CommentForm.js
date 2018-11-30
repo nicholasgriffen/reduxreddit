@@ -3,9 +3,11 @@ import {
     Button,
     Form,
     FormGroup,
-    Label,
     Input
 } from 'reactstrap'
+
+
+// post_id is dispatched to onCommentSubmit via container
 
 const CommentForm = ({ post_id, onCommentSubmit }) => (
     <Form onSubmit={ onCommentSubmit } inline>

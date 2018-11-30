@@ -2,7 +2,11 @@ import React from 'react'
 import AddPostForm from './AddPostForm'
 import InteractivePost from '../containers/InteractivePost'
 import FilterPosts from './FilterPosts'
-import { Container, Row, Col, Button } from 'reactstrap'
+import { 
+  Container, 
+  Row, 
+  Col, 
+  Button } from 'reactstrap'
 
 const Main = ({ posts, comments }) => (
       <Container className="mt-4">
@@ -21,12 +25,12 @@ const Main = ({ posts, comments }) => (
         </Row>
         <Row>
           <Col className="pr-0" sm={{size: 9, offset: 1}}>
-            {posts.map(post => {
-              return <InteractivePost 
+            {posts.map(post => (<InteractivePost 
               key={post.id} 
               post={post}
-              comments={comments.filter(comment => comment.post_id === post.id)}/>
-            })}
+              comments={comments.filter(comment => comment.post_id === post.id)}
+              />
+            ))}
             
           </Col>
         </Row>

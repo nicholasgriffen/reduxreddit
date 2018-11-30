@@ -1,4 +1,8 @@
-import { UPVOTE, DOWNVOTE } from '../actions/constants'
+import { 
+    UPVOTE, 
+    DOWNVOTE 
+} from '../actions/constants'
+
 const posts = (state = [{
     id: 0,
     img_url: 'test.net', 

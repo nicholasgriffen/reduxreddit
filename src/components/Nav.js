@@ -1,5 +1,10 @@
 import React from 'react'
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from 'reactstrap'
+import { 
+  Collapse, 
+  Navbar, 
+  NavbarToggler, 
+  NavbarBrand, 
+  Nav } from 'reactstrap'
 
 export default class Example extends React.Component {
   state = {
